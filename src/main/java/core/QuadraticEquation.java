@@ -1,8 +1,5 @@
 package core;
 
-/**
- * Created by meeroslaph on 17.06.14.
- */
 public class QuadraticEquation {
     public double a;
     public double b;
@@ -38,5 +35,3 @@ public class QuadraticEquation {
         return (-b + Math.sqrt(calcD())) / (2 * a);
     }
 }
-
-//just for test

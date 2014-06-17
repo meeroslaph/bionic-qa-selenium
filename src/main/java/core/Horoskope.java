@@ -1,8 +1,6 @@
 package core;
 
-import java.util.Dictionary;
 import java.util.HashMap;
-import java.util.Hashtable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +9,7 @@ import java.util.Hashtable;
  * Time: 19:32
  * To change this template use File | Settings | File Templates.
  */
-public class Horoskop {
+public class Horoskope {
     static String[] allSigns = {"Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius",
             "Capricorn", "Aquarius", "Pisces"};
     static String[] allStories = {"Horoskop for Aries", "Horoskop for Taurus", "Horoskop for Gemini", "Horoskop for Cancer",
@@ -20,12 +18,12 @@ public class Horoskop {
     static HashMap<String, String> signs = new HashMap<String, String>();
 
     public static void main(String[] args) {
-        Horoskop horoskop = new Horoskop();
+        Horoskope horoskope = new Horoskope();
         for (int i = 0; i < allStories.length; i++) {
-                horoskop.putHoroskop(signs, allSigns[i], allStories[i]);
+                horoskope.putHoroskop(signs, allSigns[i], allStories[i]);
          }
 
-        horoskop.displayHoroskop(signs, "lasldasd");
+        horoskope.displayHoroskop(signs, "lasldasd");
     }
 
     public void putHoroskop(HashMap<String, String> dict, String sign, String horoStory) {

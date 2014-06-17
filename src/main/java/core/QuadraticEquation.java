@@ -38,3 +38,5 @@ public class QuadraticEquation {
         return (-b + Math.sqrt(calcD())) / (2 * a);
     }
 }
+
+//just for test

@@ -1,9 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1" >
-    <test name="SmokeTest" >
+    <test name="SortTest" >
+
+        <parameter name="toSort" value="{1,9,2,8,3,7,4,6,5}" />
+        <parameter name="toCompare" value="{1,9,2,8,3,7,4,6,5}" />
+
         <classes>
-            <class name="testing.SmokeTest"/>
+            <class name="testing.SortTest"/>
         </classes>
     </test>
 </suite>

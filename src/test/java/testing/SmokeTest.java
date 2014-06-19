@@ -10,11 +10,22 @@ import org.testng.annotations.Test;
  * To change this template use File | Settings | File Templates.
  */
 public class SmokeTest {
+    private long a = 0;
+    private int step = 1000;
+    private Boolean overflow = false;
+
     @Test
-    public void sTest() {
-        //int a = 100000;
-        for(int a = 10000000; a <= 2147483647; a++) {
+    public void overflowTest() {
+        while(!overflow) {
+            if(a + step > Integer.MAX_VALUE) {
+                overflow = true;
+            }
+            else {
+                a = a + step;
+            }
         }
-        System.out.println("The");
+        System.out.println("Oops! You are trying to assign " + (a + step) + " to your int out of " +
+                Integer.MAX_VALUE + " allowed value. Your intended assignment exceeds maximum value of int by " +
+                ((a + step) - Integer.MAX_VALUE) + ".");
     }
 }

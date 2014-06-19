@@ -1,3 +1,4 @@
 /.idea
-/out/production/main/core/*.class
-/src/main/*.iml
+/out/production/*.class
+/src/*.iml
+/target/

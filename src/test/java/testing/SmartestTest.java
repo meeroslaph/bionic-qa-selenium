@@ -14,6 +14,6 @@ public class SmartestTest {
 
     @Test
     public void runTest() {
-        Assert.assertEquals(true, true);
+        Assert.assertEquals(1, 1);
     }
 }

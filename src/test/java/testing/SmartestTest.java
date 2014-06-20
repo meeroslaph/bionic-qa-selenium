@@ -15,5 +15,6 @@ public class SmartestTest {
     @Test
     public void runTest() {
         Assert.assertEquals(1, 1);
+        System.out.println("Hey, I am the text and I deserve to be read!");
     }
 }

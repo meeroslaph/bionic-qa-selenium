@@ -12,7 +12,8 @@ import java.util.Arrays;
 public class SortTest {
     private int[] toSort = {1,9,2,8,3,7,4,6,5};
     private int[] toCompare = {1,9,2,8,3,7,4,6,5};
-    //@Parameters({ "toSort", "toCompare" })
+
+    //@Parameters({ "toSort", "toCompare" }) I found it crazy to parse String into int[]!
     @Test
     public void sortTest() {
         int temp;

@@ -1,4 +1,4 @@
+*.class
+*.iml
 /.idea
-/out/production/*.class
-/src/*.iml
-/target/
+target

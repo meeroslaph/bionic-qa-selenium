@@ -9,6 +9,7 @@
         <classes>
             <class name="testing.SmokeTest"/>
             <class name="testing.SortTest"/>
+            <class name="testing.SmartestTest"/>
         </classes>
     </test>
 </suite>

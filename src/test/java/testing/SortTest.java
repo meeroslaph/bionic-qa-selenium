@@ -1,21 +1,21 @@
 package testing;
 
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-/**
- * Created by meeroslaph on 19.06.14.
- */
 public class SortTest {
-    private int[] toSort = {1,9,2,8,3,7,4,6,5};
-    private int[] toCompare = {1,9,2,8,3,7,4,6,5};
+    @DataProvider(name = "sort")
+    public Object[][] createData1() {
+        return new Object[][] {
+                { new int[] {1,9,2,8,3,7,4,6,5}, new int[] {1,9,2,8,3,7,4,6,5} },
+        };
+    }
 
-    //@Parameters({ "toSort", "toCompare" }) I found it crazy to parse String into int[]!
-    @Test
-    public void sortTest() {
+    @Test(dataProvider = "sort")
+    public void sortTest(int[] toSort, int[] toCompare) {
         int temp;
 
         for (int e = toSort.length - 1; e > 0; e--) {

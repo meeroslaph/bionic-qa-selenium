@@ -28,7 +28,7 @@ public class SortTest {
             }
         }
 
-        //Arrays.sort(toCompare);
+        Arrays.sort(toCompare);
 
         //Java's comparison
         assert Arrays.toString(toSort).equals(Arrays.toString(toCompare));

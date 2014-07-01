@@ -3,11 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="SortTest" >
         <classes>
-            <!--class name="testing.SmokeTest"/>
-            <class name="testing.SortTest"/>
-            <class name="testing.SmartestTest"/>
-            <class name="testing.LengthTest"/ -->
-            <class name="testing.BuySmartphone"/>
+            <class name="testing.BuyInfantAirlineTicket"/>
         </classes>
     </test>
 </suite>

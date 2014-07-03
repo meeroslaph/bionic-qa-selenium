@@ -2,7 +2,6 @@ package testing;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +14,12 @@ import org.testng.annotations.Test;
 
 public class BuyInfantAirlineTicket {
     public static WebDriver driver;
+
+    private static final By ticketsCategory = By.id("fatmenu_14");
+    private static final By flightDirection = By.xpath("//a[contains(@*, 'travel/IEV/AMS')]");
+    private static final By personUnit = By.xpath("//*[@data-field=\"infants\"]/*[@class=\"persons\"]/div[1]");
+    private static final By searchButton = By.id("start_search");
+    private static final By errorPopup = By.xpath("//*[@class=\"popup error_popup\"]");
 
     @DataProvider(name = "infantTicket")
     public Object[][] createData1() {
@@ -31,26 +36,24 @@ public class BuyInfantAirlineTicket {
     }
 
     @Test(dataProvider = "infantTicket")
-    public void buyInfantAirlineTicket(int numberOfTickets) {
+    public void buyInfantAirlineTicket(int numberOfInfants) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
         Actions selectFlight = new Actions(driver);
-        selectFlight.moveToElement(driver.findElement(By.id("fatmenu_14")));
-        selectFlight.perform();
+        selectFlight.moveToElement(driver.findElement(ticketsCategory)).perform();
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@*, 'travel/IEV/AMS')]")));
-        driver.findElement(By.xpath("//a[contains(@*, 'travel/IEV/AMS')]")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(flightDirection)).click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-field=\"infants\"]/*[@class=\"persons\"]/div[1]")));
-        for (int i = 1; i <= numberOfTickets; i++) {
+        wait.until(ExpectedConditions.elementToBeClickable(personUnit));
+        for (int i = 1; i <= numberOfInfants; i++) {
             driver.findElement(By.xpath("//*[@data-field=\"infants\"]/*[@class=\"persons\"]/div[" + Integer.toString(i) + "]")).click();
         }
 
-        driver.findElement(By.id("start_search")).click();
+        driver.findElement(searchButton).click();
 
-        WebElement errorPopup = driver.findElement(By.xpath("//*[@class=\"popup error_popup\"]"));
+        String errorMessage = "Младенцев не может быть больше, чем взрослых(младенцев - " + Integer.toString(numberOfInfants) + ", взрослых - 1)";
 
-        Assert.assertTrue(errorPopup.isDisplayed());
+        Assert.assertTrue(driver.findElement(errorPopup).getText().equals(errorMessage));
     }
 
     @AfterSuite

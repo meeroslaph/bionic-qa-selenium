@@ -21,7 +21,7 @@ public class BuyInfantAirlineTicket {
     private static final By searchButton = By.id("start_search");
     private static final By errorPopup = By.xpath("//*[@class=\"popup error_popup\"]");
 
-    @DataProvider(name = "infantTicket")
+    @DataProvider(name = "infantTickets")
     public Object[][] createData1() {
         return new Object[][]{
                 { 2 }
@@ -35,7 +35,7 @@ public class BuyInfantAirlineTicket {
         driver.get("http://rozetka.com.ua/");
     }
 
-    @Test(dataProvider = "infantTicket")
+    @Test(dataProvider = "infantTickets")
     public void buyInfantAirlineTicket(int numberOfInfants) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
 

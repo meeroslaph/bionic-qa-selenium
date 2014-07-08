@@ -8,7 +8,7 @@ import utils.Log4Test;
 
 import java.util.logging.Logger;
 
-public class BuyInfantTickets extends BaseTest {
+public class BuyInfantTicketsTest extends BaseTest {
     @DataProvider(name = "buyInfantTickets")
     public Object[][] createData1() {
         return new Object[][]{

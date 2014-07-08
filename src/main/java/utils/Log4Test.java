@@ -12,6 +12,7 @@ public class Log4Test {
     private static final String INFO_LOG = "INFO: \"%s\"";
     private static final String ERROR_LOG = "ERROR: \"%s\"!";
 
+    //TODO: Prevent showing error message when test has passed.
     public static String error(String message) {
         LOGGER.error(String.format(ERROR_LOG, message));
         Reporter.log(String.format(ERROR_LOG, message));

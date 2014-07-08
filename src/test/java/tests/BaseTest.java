@@ -9,6 +9,13 @@ import org.testng.annotations.DataProvider;
 public class BaseTest {
     public static WebDriver driver;
 
+    @DataProvider(name = "buyInfantTickets")
+    public Object[][] createData1() {
+        return new Object[][]{
+                { 1, 0, 2 }
+        };
+    }
+
     @DataProvider(name = "products")
     public Object[][] createData() {
         return new Object[][]{

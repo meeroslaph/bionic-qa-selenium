@@ -1,19 +1,11 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.TicketsPage;
 import utils.Log4Test;
 
 public class BuyInfantTicketsTest extends BaseTest {
-    @DataProvider(name = "buyInfantTickets")
-    public Object[][] createData1() {
-        return new Object[][]{
-                { 1, 0, 2 }
-        };
-    }
-
     @Test(dataProvider = "buyInfantTickets")
     public void buyInfantTickets(int adults, int children, int infants) {
         Log4Test.info("*** Start of buyInfantTickets test. ***");

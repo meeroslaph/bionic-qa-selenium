@@ -20,7 +20,7 @@ public class BaseTest {
     public Object[][] createData() {
         return new Object[][]{
                 { new String[] {"Fly DS106D Black", "Nokia 105 Black"} },
-                { new String[] {"Маска AquaLung Infinity Red (108.710)", "Маска Cressi-Sub Perla Black (DN208150)"} }
+                { new String[] {"AquaLung Infinity Red (108.710)", "Cressi-Sub Perla Black (DN208150)"} }
         };
     }
 

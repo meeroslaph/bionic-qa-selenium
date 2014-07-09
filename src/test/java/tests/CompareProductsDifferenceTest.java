@@ -7,10 +7,10 @@ import pages.HomePage;
 import pages.SearchResultPage;
 import utils.Log4Test;
 
-public class CompareProductsTest extends BaseTest {
+public class CompareProductsDifferenceTest extends BaseTest {
     @Test(dataProvider = "products")
-    public void compareProducts(String[] products) {
-        Log4Test.info("*** Start of compareProducts test. ***");
+    public void compareProductsDifferenceTest(String[] products) {
+        Log4Test.info("*** Start of compareProductsDifferenceTest test. ***");
         HomePage homePage = new HomePage(driver);
         Log4Test.info("Open home page.");
         homePage.open();
@@ -27,6 +27,6 @@ public class CompareProductsTest extends BaseTest {
         searchResultPage.compareProducts();
         CompareProductsPage compareProductsPage = new CompareProductsPage(driver);
         Assert.assertTrue(compareProductsPage.areProductsPresent(products), Log4Test.error("Not all selected products are presented in the comparison page."));
-        Log4Test.info("*** End of compareProducts test. ***");
+        Log4Test.info("*** End of compareProductsDifferenceTest test. ***");
     }
 }

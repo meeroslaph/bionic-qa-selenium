@@ -15,10 +15,10 @@ public class FindSimilarProductsTest extends BaseTest {
         homePage.open();
         Assert.assertTrue(homePage.isOpened(), Log4Test.error("Home page is not opened."));
         SearchResultPage searchResultPage = new SearchResultPage(driver);
-        for (int i = 0; i < products.length; i++) {
-            Log4Test.info("Search for " + products[i] + ".");
-            searchResultPage.search(products[i]);
-            Assert.assertTrue(searchResultPage.isProductFound(products[i]), Log4Test.error(products[i] + " is not found."));
+        for (String product : products) {
+            Log4Test.info("Search for " + product + ".");
+            searchResultPage.search(product);
+            Assert.assertTrue(searchResultPage.isProductFound(product), Log4Test.error(product + " is not found."));
         }
         Log4Test.info("*** End of findSimilarProducts test. ***");
     }

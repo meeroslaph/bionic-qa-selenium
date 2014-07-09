@@ -1,10 +1,11 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
+import selenium.WebDriverFactory;
+import utils.PropertyLoader;
 
 public class BaseTest {
     public static WebDriver driver;
@@ -20,13 +21,13 @@ public class BaseTest {
     public Object[][] createData() {
         return new Object[][]{
                 { new String[] {"Fly DS106D Black", "Nokia 105 Black"} },
-                { new String[] {"AquaLung Infinity Red (108.710)", "Cressi-Sub Perla Black (DN208150)"} }
+                { new String[] {"Маска AquaLung Infinity Red (108.710)", "Маска Cressi-Sub Perla Black (DN208150)"} }
         };
     }
 
     @BeforeSuite
     public void intEnv() {
-        driver = new FirefoxDriver();
+        driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
         driver.manage().window().maximize();
     }
 

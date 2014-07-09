@@ -8,6 +8,22 @@
     <artifactId>selenium-oleinykov</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <profiles>
+        <profile>
+            <id>firefox</id>
+            <properties>
+                <browser.name>firefox</browser.name>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>chrome</id>
+            <properties>
+                <browser.name>chrome</browser.name>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <resources>
             <resource>

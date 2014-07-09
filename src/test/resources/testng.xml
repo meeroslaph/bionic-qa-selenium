@@ -3,8 +3,8 @@
 <suite name="Suite1" verbose="1" >
     <test name="test" >
         <classes>
-            <!--class name="tests.BuyInfantTicketsTest"/>
-            <class name="tests.FindSimilarProductsTest"-->
+            <class name="tests.BuyInfantTicketsTest"/>
+            <class name="tests.FindSimilarProductsTest"/>
             <class name="tests.CompareProductsTest"/>
         </classes>
     </test>

@@ -19,7 +19,8 @@ public class BaseTest {
     @DataProvider(name = "products")
     public Object[][] createData() {
         return new Object[][]{
-                { 2, new String[] {"Apple iPhone 5s 16GB Space Gray UACRF", "Nokia Lumia 920 Yellow"} }
+                { new String[] {"Fly DS106D Black", "Nokia 105 Black"} },
+                { new String[] {"Маска AquaLung Infinity Red (108.710)", "Маска Cressi-Sub Perla Black (DN208150)"} }
         };
     }
 

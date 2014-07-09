@@ -32,4 +32,12 @@ public class CompareProductsPage extends BasePage {
         }
         return result;
     }
+
+    public void showDifference() {
+        driver.findElement(showDifferenceLnk).click();
+    }
+
+    public Boolean compareProducts(String[] products) {
+        return false;
+    }
 }

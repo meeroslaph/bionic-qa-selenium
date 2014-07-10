@@ -19,7 +19,7 @@ public class BaseTest {
 
     @BeforeTest
     public void beforeTest() {
-        Log4Test.info("*#*#*#*#*#*#*#*#*#* Start of the test suite. *#*#*#*#*#*#*#*#*#*");
+        Log4Test.info("*#*#*#*#*#* Start of the test suite. *#*#*#*#*#*");
     }
 
     @BeforeMethod
@@ -32,12 +32,12 @@ public class BaseTest {
 
     @AfterMethod
     public void afterMethod() {
-        Log4Test.info("*-_-_-_-_-  End of the test.  -_-_-_-_-");
+        Log4Test.info("-_-_-_-_-  End of the test.  -_-_-_-_-");
     }
 
     @AfterTest
     public void afterTest() {
-        Log4Test.info("*#*#*#*#*#*#*#*#*#*  End of the test suite.  *#*#*#*#*#*#*#*#*#*");
+        Log4Test.info("*#*#*#*#*#*  End of the test suite.  *#*#*#*#*#*");
     }
 
     @AfterSuite

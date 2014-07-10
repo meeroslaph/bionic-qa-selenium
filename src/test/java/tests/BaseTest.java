@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.HomePage;
 import selenium.WebDriverFactory;
@@ -26,7 +27,7 @@ public class BaseTest {
         Log4Test.info("-_-_-_-_- Start of the test. -_-_-_-_-");
         HomePage homePage = new HomePage(driver);
         homePage.open();
-        homePage.isOpened();
+        Assert.assertTrue(homePage.isOpened(), Log4Test.error("Home page is not opened."));
     }
 
     @AfterMethod

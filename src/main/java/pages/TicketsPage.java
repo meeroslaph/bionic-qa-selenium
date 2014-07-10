@@ -13,7 +13,6 @@ public class TicketsPage extends BasePage {
 
     public TicketsPage(WebDriver driver) {
         super(driver);
-        url = "http://rozetka.com.ua/travel/IEV/AMS/";
     }
 
     public void buyTickets(int adults, int children, int infants) {

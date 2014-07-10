@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Log4Test;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class CompareProductsPage extends BasePage {
     }
 
     public Boolean areProductsPresent(String[] products) {
+        Log4Test.info("Check that selected products are present in the comparison page.");
         wait.until(ExpectedConditions.visibilityOfElementLocated(productTitleLocator));
         Boolean result = false;
         List<WebElement> allComparedProducts = driver.findElements(productTitleLocator);
@@ -34,10 +36,12 @@ public class CompareProductsPage extends BasePage {
     }
 
     public void showDifference() {
+        Log4Test.info("Show the difference between the selected products.");
         driver.findElement(showDifferenceLnk).click();
     }
 
     public Boolean compareProducts(String[] products) {
+        Log4Test.info("Compare the difference between the selected products.");
         return false;
     }
 }

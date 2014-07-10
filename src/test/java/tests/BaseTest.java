@@ -27,7 +27,7 @@ public class BaseTest {
         Log4Test.info("-_-_-_-_- Start of the test. -_-_-_-_-");
         HomePage homePage = new HomePage(driver);
         homePage.open();
-        Assert.assertTrue(homePage.isOpened(), Log4Test.error("Home page is not opened."));
+        Assert.assertTrue(homePage.isOpened(), Log4Test.error("Home page is not open."));
     }
 
     @AfterMethod

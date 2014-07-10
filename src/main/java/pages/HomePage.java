@@ -11,11 +11,12 @@ public class HomePage extends BasePage {
     }
 
     public void open() {
-        Log4Test.info("Open Home page.");
+        Log4Test.info("Open home page.");
         driver.get(url);
     }
 
     public Boolean isOpened() {
+        Log4Test.info("Check that home page is open.");
         return driver.getCurrentUrl().equals(url);
     }
 }

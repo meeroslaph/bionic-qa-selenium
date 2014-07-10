@@ -11,21 +11,14 @@ import utils.Log4Test;
 public class CompareProductsTest extends BaseTest {
     @Test(dataProvider = "products", dataProviderClass = ProductsData.class)
     public void compareProducts(String[] products) {
-        HomePage homePage = new HomePage(driver);
-        Log4Test.info("Open home page.");
-        homePage.open();
-        Assert.assertTrue(homePage.isOpened(), Log4Test.error("Home page is not opened."));
         SearchResultPage searchResultPage = new SearchResultPage(driver);
         for (String product : products) {
-            Log4Test.info("Search for " + product + ".");
             searchResultPage.search(product);
             Assert.assertTrue(searchResultPage.isProductFound(product), Log4Test.error(product + " is not found."));
-            Log4Test.info("Add product to comparison.");
             searchResultPage.addProductToComparison();
         }
-        Log4Test.info("Compare selected products.");
         searchResultPage.compareProducts();
         CompareProductsPage compareProductsPage = new CompareProductsPage(driver);
-        Assert.assertTrue(compareProductsPage.areProductsPresent(products), Log4Test.error("Not all selected products are presented in the comparison page."));
+        Assert.assertTrue(compareProductsPage.areProductsPresent(products), Log4Test.error("Not all selected products are present in the comparison page."));
     }
 }

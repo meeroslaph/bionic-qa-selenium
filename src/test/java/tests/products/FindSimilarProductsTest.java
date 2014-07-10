@@ -11,7 +11,6 @@ public class FindSimilarProductsTest extends BaseTest {
     public void findSimilarProducts(String[] products) {
         SearchResultPage searchResultPage = new SearchResultPage(driver);
         for (String product : products) {
-            Log4Test.info("Search for " + product + ".");
             searchResultPage.search(product);
             Assert.assertTrue(searchResultPage.isProductFound(product), Log4Test.error(product + " is not found."));
         }

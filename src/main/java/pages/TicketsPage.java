@@ -31,6 +31,7 @@ public class TicketsPage extends BasePage {
     }
 
     public Boolean isError() {
+        Log4Test.info("Check that error pop-up window is displayed.");
         return driver.findElements(errorPopup).size() > 0;
     }
 }

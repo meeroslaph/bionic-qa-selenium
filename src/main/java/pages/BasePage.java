@@ -23,7 +23,7 @@ abstract public class BasePage {
     }
 
     public void search(String query) {
-        Log4Test.info("Search for the product.");
+        Log4Test.info("Search for " + query + ".");
         driver.findElement(searchInput).clear();
         driver.findElement(searchInput).sendKeys(query);
         driver.findElement(searchBtn).click();

@@ -1,16 +1,16 @@
-package tests;
+package tests.products;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CompareProductsPage;
 import pages.HomePage;
 import pages.SearchResultPage;
+import tests.BaseTest;
 import utils.Log4Test;
 
 public class CompareProductsTest extends BaseTest {
-    @Test(dataProvider = "products")
+    @Test(dataProvider = "products", dataProviderClass = ProductsData.class)
     public void compareProducts(String[] products) {
-        Log4Test.info("*** Start of compareProducts test. ***");
         HomePage homePage = new HomePage(driver);
         Log4Test.info("Open home page.");
         homePage.open();
@@ -27,6 +27,5 @@ public class CompareProductsTest extends BaseTest {
         searchResultPage.compareProducts();
         CompareProductsPage compareProductsPage = new CompareProductsPage(driver);
         Assert.assertTrue(compareProductsPage.areProductsPresent(products), Log4Test.error("Not all selected products are presented in the comparison page."));
-        Log4Test.info("*** End of compareProducts test. ***");
     }
 }

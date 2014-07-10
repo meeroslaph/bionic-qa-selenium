@@ -1,16 +1,16 @@
-package tests;
+package tests.products;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CompareProductsPage;
 import pages.HomePage;
 import pages.SearchResultPage;
+import tests.BaseTest;
 import utils.Log4Test;
 
 public class CompareProductsDifferenceTest extends BaseTest {
-    @Test(dataProvider = "products")
+    @Test(dataProvider = "products", dataProviderClass = ProductsData.class)
     public void compareProductsDifferenceTest(String[] products) {
-        Log4Test.info("*** Start of compareProductsDifferenceTest test. ***");
         HomePage homePage = new HomePage(driver);
         Log4Test.info("Open home page.");
         homePage.open();
@@ -31,6 +31,5 @@ public class CompareProductsDifferenceTest extends BaseTest {
         compareProductsPage.showDifference();
         Log4Test.info("Compare different properties in the displayed products.");
         Assert.assertTrue(compareProductsPage.compareProducts(products), Log4Test.error("Not all displayed properties are different."));
-        Log4Test.info("*** End of compareProductsDifferenceTest test. ***");
     }
 }

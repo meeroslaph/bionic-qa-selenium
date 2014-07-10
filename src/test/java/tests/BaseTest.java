@@ -10,21 +10,6 @@ import utils.PropertyLoader;
 public class BaseTest {
     public static WebDriver driver;
 
-    @DataProvider(name = "buyInfantTickets")
-    public Object[][] createData1() {
-        return new Object[][]{
-                { 1, 0, 2 }
-        };
-    }
-
-    @DataProvider(name = "products")
-    public Object[][] createData() {
-        return new Object[][]{
-                { new String[] {"Fly DS106D Black", "Nokia 105 Black"} },
-                { new String[] {"Маска AquaLung Infinity Red (108.710)", "Маска Cressi-Sub Perla Black (DN208150)"} }
-        };
-    }
-
     @BeforeSuite
     public void intEnv() {
         driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));

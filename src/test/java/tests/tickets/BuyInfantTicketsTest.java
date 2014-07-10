@@ -1,12 +1,14 @@
-package tests;
+package tests.tickets;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TicketsPage;
+import tests.BaseTest;
+import tests.products.ProductsData;
 import utils.Log4Test;
 
 public class BuyInfantTicketsTest extends BaseTest {
-    @Test(dataProvider = "buyInfantTickets")
+    @Test(dataProvider = "tickets", dataProviderClass = TicketsData.class)
     public void buyInfantTickets(int adults, int children, int infants) {
         Log4Test.info("*** Start of buyInfantTickets test. ***");
         TicketsPage ticketsPage = new TicketsPage(driver);

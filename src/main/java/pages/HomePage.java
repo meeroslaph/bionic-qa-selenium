@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import utils.Log4Test;
 
 public class HomePage extends BasePage {
-    private String url = "http://rozetka.com.ua/";
+    private static final String URL = "http://rozetka.com.ua/";
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -12,11 +12,11 @@ public class HomePage extends BasePage {
 
     public void open() {
         Log4Test.info("Open home page.");
-        driver.get(url);
+        driver.get(URL);
     }
 
     public Boolean isOpened() {
         Log4Test.info("Check that home page is open.");
-        return driver.getCurrentUrl().equals(url);
+        return driver.getCurrentUrl().equals(URL);
     }
 }

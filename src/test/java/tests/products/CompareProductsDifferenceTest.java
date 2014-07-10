@@ -3,7 +3,6 @@ package tests.products;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CompareProductsPage;
-import pages.HomePage;
 import pages.SearchResultPage;
 import tests.BaseTest;
 import utils.Log4Test;
@@ -20,7 +19,6 @@ public class CompareProductsDifferenceTest extends BaseTest {
         searchResultPage.compareProducts();
         CompareProductsPage compareProductsPage = new CompareProductsPage(driver);
         Assert.assertTrue(compareProductsPage.areProductsPresent(products), Log4Test.error("Not all selected products are present in the comparison page."));
-        compareProductsPage.showDifference();
-        Assert.assertTrue(compareProductsPage.compareProducts(products), Log4Test.error("Not all displayed properties are different."));
+        Assert.assertTrue(compareProductsPage.compareProductsDifference(products), Log4Test.error("Not all displayed properties are different."));
     }
 }

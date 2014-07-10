@@ -14,8 +14,8 @@ abstract public class BasePage {
     private static final By searchInput = By.className("header-search-input-text");
     private static final By searchBtn = By.className("btn-link-i");
 
-    private static final By ticketsCategory = By.id("fatmenu_14");
-    private static final By flightDirection = By.xpath("//*[contains(@href,'IEV/AMS')]");
+    private static final By ticketsCategoryLocator = By.id("fatmenu_14");
+    private static final By flightDirectionLocator = By.xpath("//*[contains(@href,'IEV/AMS')]");
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -32,7 +32,7 @@ abstract public class BasePage {
     public void openAirTicketsPage() {
         Log4Test.info("Open air tickets page.");
         Actions selectTicketsCategory = new Actions(driver);
-        selectTicketsCategory.moveToElement(driver.findElement(ticketsCategory)).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(flightDirection))).click();
+        selectTicketsCategory.moveToElement(driver.findElement(ticketsCategoryLocator)).perform();
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(flightDirectionLocator))).click();
     }
 }

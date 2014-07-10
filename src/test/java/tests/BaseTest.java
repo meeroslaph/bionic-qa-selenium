@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+import pages.HomePage;
 import selenium.WebDriverFactory;
 import utils.Log4Test;
 import utils.PropertyLoader;
@@ -23,6 +24,9 @@ public class BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         Log4Test.info("*#*#*#*#*#*#*#*#*#* Start of the test. *#*#*#*#*#*#*#*#*#*");
+        HomePage homePage = new HomePage(driver);
+        homePage.open();
+        homePage.isOpened();
     }
 
     @AfterMethod

@@ -13,9 +13,7 @@ public class BuyInfantTicketsTest extends BaseTest {
         TicketsPage ticketsPage = new TicketsPage(driver);
         Log4Test.info("Open tickets page.");
         ticketsPage.open();
-        //TODO: Prevent showing error message when test has passed.
         Assert.assertTrue(ticketsPage.isOpened(), Log4Test.error("Tickets page is not opened."));
-        Log4Test.info("Buy selected tickets.");
         ticketsPage.buyTickets(adults, children, infants);
         Assert.assertTrue(ticketsPage.isError(), Log4Test.error("Error pop-up is not displayed."));
     }

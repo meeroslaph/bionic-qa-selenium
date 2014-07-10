@@ -15,7 +15,7 @@ abstract public class BasePage {
     private static final By searchBtn = By.className("btn-link-i");
 
     private static final By ticketsCategory = By.id("fatmenu_14");
-    private static final By flightDirection = By.xpath("//a[contains(@*, 'travel/IEV/AMS')]");
+    private static final By flightDirection = By.xpath("//*[contains(@href,'IEV/AMS')]");
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -23,7 +23,7 @@ abstract public class BasePage {
     }
 
     public void search(String query) {
-        Log4Test.info("Search for product.");
+        Log4Test.info("Search for the product.");
         driver.findElement(searchInput).clear();
         driver.findElement(searchInput).sendKeys(query);
         driver.findElement(searchBtn).click();

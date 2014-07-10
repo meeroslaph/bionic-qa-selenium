@@ -1,10 +1,9 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.*;
 import selenium.WebDriverFactory;
+import utils.Log4Test;
 import utils.PropertyLoader;
 
 public class BaseTest {
@@ -14,6 +13,16 @@ public class BaseTest {
     public void intEnv() {
         driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
         driver.manage().window().maximize();
+    }
+
+    @BeforeTest
+    public void beforeTest() {
+        Log4Test.info("*#*#*#*#*#*#*#*#*#* Start of the test. *#*#*#*#*#*#*#*#*#*");
+    }
+
+    @AfterTest
+    public void afterTest() {
+        Log4Test.info("*#*#*#*#*#*#*#*#*#*  End of the test.  *#*#*#*#*#*#*#*#*#*");
     }
 
     @AfterSuite

@@ -3,7 +3,6 @@ package tests.products;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CompareProductsPage;
-import pages.HomePage;
 import pages.SearchResultPage;
 import tests.BaseTest;
 import utils.Log4Test;

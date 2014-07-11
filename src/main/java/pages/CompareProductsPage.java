@@ -4,17 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Log4Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class CompareProductsPage extends BasePage {
     private static final By productTitleLocator = By.xpath("//*[@class='title']/a");
     private static final By showDifferenceLnk = By.xpath("//*[@href='#only-different']");
     private static final By productsKeysLocator = By.xpath("//td[@class='detail-title']");
+    private static final By productsDifferentKeysLocator = By.xpath("//tr[contains(@class, 'different')]/td[1]");
     private static final String productValuesLocator = "//td[@class='detail-title']/ancestor::tr/td[%d]";
 
     public CompareProductsPage(WebDriver driver) {
@@ -49,14 +48,10 @@ public class CompareProductsPage extends BasePage {
         for (int i = 2; i <= products.length + 1; i++) {
             productsValues.add(getProductValues(i));
         }
-        List<String> differentKeys = getDifferentKeys(productsKeys, productsValues);
+        List<String> calculatedDifferentKeys = calculateDifferentKeys(productsKeys, productsValues);
         showDifference();
-        List<WebElement> testDiff = getProductsKeys();
-        for (int i = 0; i < testDiff.size(); i++) {
-            //System.out.println(differentKeys.get(i));
-            System.out.println(testDiff.get(i).getText());
-        }
-        return false;
+        List<String> differentKeys = getDifferentProductKeys();
+        return calculatedDifferentKeys.size() == differentKeys.size() && calculatedDifferentKeys.containsAll(differentKeys);
     }
 
     public List<WebElement> getProductsKeys() {
@@ -67,8 +62,17 @@ public class CompareProductsPage extends BasePage {
         return driver.findElements(By.xpath(String.format(productValuesLocator, i)));
     }
 
+    public List<String> getDifferentProductKeys() {
+        List<String> differentKeys = new ArrayList<String>();
+        List<WebElement> foundDifferentKeys = driver.findElements(productsDifferentKeysLocator);
+        for (WebElement element : foundDifferentKeys) {
+            differentKeys.add(element.getText());
+        }
+        return differentKeys;
+    }
+
     //TODO: Improve the method to handle more than 2 products more robust.
-    public List<String> getDifferentKeys(List<WebElement> productKeys, List<List<WebElement>> productsValues) {
+    public List<String> calculateDifferentKeys(List<WebElement> productKeys, List<List<WebElement>> productsValues) {
         List<String> differentKeys = new ArrayList<String>();
         for (int i = 0; i < productKeys.size(); i++) {
             if (!productsValues.get(0).get(i).getText().equals(productsValues.get(1).get(i).getText())) {
@@ -76,20 +80,5 @@ public class CompareProductsPage extends BasePage {
             }
         }
         return differentKeys;
-
-
-        /*
-        String[] differentKeys = new String[productKeys.size()];
-        List<WebElement> product1Values = productsValues.get(0);
-        List<WebElement> product2Values = productsValues.get(1);
-        int j = 0;
-        for (int i = 0; i < productKeys.size(); i++) {
-            if (!product1Values.get(i).getText().equals(product2Values.get(i).getText())) {
-                differentKeys[j] = productKeys.get(i).getText();
-                j++;
-            }
-        }
-        return differentKeys;
-        */
     }
 }

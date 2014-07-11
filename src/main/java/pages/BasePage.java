@@ -9,7 +9,6 @@ import utils.Log4Test;
 
 abstract public class BasePage {
     protected WebDriver driver;
-    protected WebDriverWait wait;
 
     private static final By searchInput = By.className("header-search-input-text");
     private static final By searchBtn = By.className("btn-link-i");
@@ -19,7 +18,6 @@ abstract public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 10);
     }
 
     public void search(String query) {
@@ -33,6 +31,6 @@ abstract public class BasePage {
         Log4Test.info("Open air tickets page.");
         Actions selectTicketsCategory = new Actions(driver);
         selectTicketsCategory.moveToElement(driver.findElement(ticketsCategoryLocator)).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(flightDirectionLocator))).click();
+        driver.findElement(flightDirectionLocator).click();
     }
 }

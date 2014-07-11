@@ -22,7 +22,6 @@ public class CompareProductsPage extends BasePage {
 
     public Boolean areProductsPresent(String[] products) {
         Log4Test.info("Check that selected products are present in the comparison page.");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(productTitleLocator));
         Boolean result = false;
         List<WebElement> allComparedProducts = driver.findElements(productTitleLocator);
         for (int i = 0; i < allComparedProducts.size(); i++) {

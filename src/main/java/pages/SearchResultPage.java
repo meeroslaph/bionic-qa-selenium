@@ -26,6 +26,6 @@ public class SearchResultPage extends BasePage {
 
     public void compareProducts() {
         Log4Test.info("Open comparison page.");
-        wait.until(ExpectedConditions.elementToBeClickable(compareProductsLnk)).click();
+        driver.findElement(compareProductsLnk).click();
     }
 }

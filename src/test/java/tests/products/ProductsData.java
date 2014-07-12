@@ -7,7 +7,7 @@ public class ProductsData {
     public static Object[][] createData() {
         return new Object[][]{
                 { new String[] {"Fly DS106D Black", "Nokia 107 Dual SIM Red"} },
-                { new String[] {"Маска AquaLung Infinity Red (108.710)", "Маска Cressi-Sub Perla Black (DN208150)"} }
+                { new String[] {"Samsung UE-32H6410 (UE32H6410AUXUA)", "LG 39LB580V"} }
         };
     }
 }

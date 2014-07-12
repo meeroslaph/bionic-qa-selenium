@@ -25,6 +25,7 @@ abstract public class BasePage {
 
     public void search(String query) {
         Log4Test.info("Search for " + query + ".");
+        driver.findElement(searchInput).sendKeys(" ");
         driver.findElement(searchInput).clear();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(searchInputHint));
         driver.findElement(searchInput).sendKeys(query);

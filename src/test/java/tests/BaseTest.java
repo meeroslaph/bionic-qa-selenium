@@ -24,7 +24,6 @@ public class BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
-        driver.manage().deleteAllCookies();
         Log4Test.info("-_-_-_-_- Start of the test. -_-_-_-_-");
         HomePage homePage = new HomePage(driver);
         homePage.open();

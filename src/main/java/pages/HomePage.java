@@ -1,12 +1,12 @@
 package pages;
 
-import selenium.WebDriverWrapper;
+import org.openqa.selenium.WebDriver;
 import utils.Log4Test;
 
 public class HomePage extends BasePage {
     private static final String URL = "http://rozetka.com.ua/";
 
-    public HomePage(WebDriverWrapper driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 

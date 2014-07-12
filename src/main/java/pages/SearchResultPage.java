@@ -1,7 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import selenium.WebDriverWrapper;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
 
 public class SearchResultPage extends BasePage {
@@ -9,7 +10,7 @@ public class SearchResultPage extends BasePage {
     private static final By addToComparisonBtn = By.name("tocomparison");
     private static final By compareProductsLnk = By.xpath("//*[@href and contains(text(), 'сравнению')]");
 
-    public SearchResultPage(WebDriverWrapper driver) {
+    public SearchResultPage(WebDriver driver) {
         super(driver);
     }
 
@@ -26,6 +27,6 @@ public class SearchResultPage extends BasePage {
 
     public void compareProducts() {
         Log4Test.info("Open comparison page.");
-        driver.findElement(compareProductsLnk).click();
+        wait.until(ExpectedConditions.elementToBeClickable(compareProductsLnk)).click();
     }
 }

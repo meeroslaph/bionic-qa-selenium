@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="tests" verbose="1" >
+<suite name="tests" verbose="2">
     <test name="tickets">
         <classes>
             <class name="tests.tickets.BuyInfantTicketsTest"/>

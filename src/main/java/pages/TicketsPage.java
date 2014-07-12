@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
 
 public class TicketsPage extends BasePage {
@@ -16,6 +17,7 @@ public class TicketsPage extends BasePage {
     }
 
     public void buyTickets(int adults, int children, int infants) {
+        wait.until(ExpectedConditions.elementToBeClickable(searchBtn));
         Log4Test.info("Buy tickets.");
         driver.findElement(By.xpath(String.format(adultsTicketsLocator, 1))).click();
         if (adults != 0) {

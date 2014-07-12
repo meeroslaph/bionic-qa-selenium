@@ -20,7 +20,8 @@ public class SearchResultPage extends BasePage {
 
     public void addProductToComparison() {
         Log4Test.info("Add the product to comparison.");
-        driver.findElement(addToComparisonBtn).click();
+        wait.until(ExpectedConditions.elementToBeClickable(addToComparisonBtn)).click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(addToComparisonBtn));
     }
 
     public void compareProducts() {

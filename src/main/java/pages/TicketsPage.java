@@ -1,7 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import selenium.WebDriverWrapper;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
 
 public class TicketsPage extends BasePage {
@@ -11,11 +12,12 @@ public class TicketsPage extends BasePage {
     private static final By searchBtn = By.id("start_search");
     private static final By errorPopup = By.xpath("//*[@class='popup error_popup']");
 
-    public TicketsPage(WebDriverWrapper driver) {
+    public TicketsPage(WebDriver driver) {
         super(driver);
     }
 
     public void buyTickets(int adults, int children, int infants) {
+        wait.until(ExpectedConditions.elementToBeClickable(searchBtn));
         Log4Test.info("Buy tickets.");
         driver.findElement(By.xpath(String.format(adultsTicketsLocator, 1))).click();
         if (adults != 0) {

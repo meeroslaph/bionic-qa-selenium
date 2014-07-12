@@ -9,6 +9,7 @@ abstract public class BasePage {
     protected WebDriverWrapper driver;
 
     private static final By searchInput = By.className("header-search-input-text");
+    private static final By searchInputHint = By.xpath("//input[contains (@style, 'font')]");
     private static final By searchBtn = By.className("btn-link-i");
 
     private static final By ticketsCategoryLocator = By.id("fatmenu_14");
@@ -21,6 +22,7 @@ abstract public class BasePage {
     public void search(String query) {
         Log4Test.info("Search for " + query + ".");
         driver.findElement(searchInput).clear();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(searchInputHint));
         driver.findElement(searchInput).sendKeys(query);
         driver.findElement(searchBtn).click();
     }

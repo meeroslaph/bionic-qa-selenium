@@ -1,9 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import selenium.WebDriverWrapper;
 import utils.Log4Test;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ public class CompareProductsPage extends BasePage {
     private static final By productsDifferentKeysLocator = By.xpath("//tr[contains(@class, 'different')]/td[1]");
     private static final String productValuesLocator = "//td[@class='detail-title']/ancestor::tr/td[%d]";
 
-    public CompareProductsPage(WebDriver driver) {
+    public CompareProductsPage(WebDriverWrapper driver) {
         super(driver);
     }
 

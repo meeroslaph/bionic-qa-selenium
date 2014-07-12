@@ -1,7 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import selenium.WebDriverWrapper;
 import utils.Log4Test;
 
 public class TicketsPage extends BasePage {
@@ -11,7 +11,7 @@ public class TicketsPage extends BasePage {
     private static final By searchBtn = By.id("start_search");
     private static final By errorPopup = By.xpath("//*[@class='popup error_popup']");
 
-    public TicketsPage(WebDriver driver) {
+    public TicketsPage(WebDriverWrapper driver) {
         super(driver);
     }
 

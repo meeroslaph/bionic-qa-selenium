@@ -9,6 +9,7 @@ public class SearchResultPage extends BasePage {
     private static final By foundProductTitleLocator = By.className("g-i-list-title");
     private static final By addToComparisonBtn = By.name("tocomparison");
     private static final By compareProductsLnk = By.xpath("//*[@href and contains(text(), 'сравнению')]");
+    private static final By buyBtn = By.name("topurchasesfromcatalog");
 
     public SearchResultPage(WebDriver driver) {
         super(driver);
@@ -28,5 +29,10 @@ public class SearchResultPage extends BasePage {
     public void compareProducts() {
         Log4Test.info("Open comparison page.");
         wait.until(ExpectedConditions.elementToBeClickable(compareProductsLnk)).click();
+    }
+
+    public void buyProduct() {
+        Log4Test.info("Buy product.");
+        wait.until(ExpectedConditions.elementToBeClickable(buyBtn)).click();
     }
 }

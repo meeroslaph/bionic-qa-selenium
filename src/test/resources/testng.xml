@@ -14,4 +14,10 @@
             <class name="tests.products.CompareProductsDifferenceTest"/>
         </classes>
     </test>
+
+    <test name="basket">
+        <classes>
+            <class name="tests.basket.AddProductsToBasket"/>
+        </classes>
+    </test>
 </suite>

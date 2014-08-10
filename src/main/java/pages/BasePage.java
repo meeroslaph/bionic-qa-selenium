@@ -14,7 +14,6 @@ abstract public class BasePage {
     private static final By helperLocator = By.xpath("//*[@class='header-phones-numbers-i']");
     private static final By searchInput = By.className("header-search-input-text");
     private static final By searchBtn = By.className("btn-link-i");
-
     private static final By ticketsCategoryLocator = By.id("fatmenu_14");
     private static final By flightDirectionLocator = By.xpath("//*[contains(@href,'IEV/AMS')]");
 

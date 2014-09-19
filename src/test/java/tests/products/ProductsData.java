@@ -7,7 +7,7 @@ public class ProductsData {
     public static Object[][] createData() {
         return new Object[][]{
                 { new String[] {"Fly DS106D Black", "Nokia 107 Dual SIM Red"} },
-                { new String[] {"Samsung UE-32H6410 (UE32H6410AUXUA)", "LG 39LB580V"} }
+                { new String[] {"Samsung T24D391EX (LT24D391EX/CI)", "LG 39LB580V"} }
         };
     }
 }

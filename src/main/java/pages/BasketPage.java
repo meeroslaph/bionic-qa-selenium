@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
 
-public class BasketPage extends HomePage {
+public class BasketPage extends BasePage {
     private static final By title = By.className("cart-title");
     private static final By productTitle = By.className("no-visited");
     private static final By productPrice = By.className("cart-uah");

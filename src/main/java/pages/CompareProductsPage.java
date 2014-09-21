@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompareProductsPage extends BasePage {
-    private static final By productTitleLocator = By.xpath("//*[@class='title']/a");
+    private static final By productTitleLocator = By.xpath("*//thead//div[contains(@class, 'i-title')]");
     private static final By showDifferenceLnk = By.xpath("//*[@href='#only-different']");
     private static final By productsKeysLocator = By.xpath("//td[@class='detail-title']");
     private static final By productsDifferentKeysLocator = By.xpath("//tr[contains(@class, 'different')]/td[1]");

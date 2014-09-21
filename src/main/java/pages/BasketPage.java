@@ -19,7 +19,7 @@ public class BasketPage extends HomePage {
 
     public Boolean checkProductTitle(String productName) {
         Log4Test.info("Check title of added product.");
-        wait.until(ExpectedConditions.presenceOfElementLocated(productTitle));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(productPrice));
         return driver.findElement(productTitle).getText().equals(productName);
     }
 

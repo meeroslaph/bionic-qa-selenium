@@ -2,15 +2,22 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
+
+import java.util.List;
 
 public class TicketsPage extends BasePage {
     private static final String adultsTicketsLocator = "//div[@class='adults_block passengers_wrapper']/div[@class='persons']/div[%d]";
     private static final String childrenTicketsLocator = "//div[@class='children_block passengers_wrapper']/div[@class='persons']/div[%d]";
     private static final String infantsTicketsLocator = "//div[@class='infants_block passengers_wrapper']/div[@class='persons']/div[%d]";
-    private static final By searchBtn = By.id("start_search");
-    private static final By errorPopup = By.xpath("//*[@class='popup error_popup']");
+    @FindBy(id = "start_search")
+    private WebElement searchBtn;
+    @FindBy(xpath = "//*[@class='popup error_popup']")
+    private WebElement errorPopup;
 
     public TicketsPage(WebDriver driver) {
         super(driver);
@@ -19,6 +26,7 @@ public class TicketsPage extends BasePage {
     public void buyTickets(int adults, int children, int infants) {
         wait.until(ExpectedConditions.elementToBeClickable(searchBtn));
         Log4Test.info("Buy tickets.");
+        //Set default adult tickets amount to 0.
         driver.findElement(By.xpath(String.format(adultsTicketsLocator, 1))).click();
         if (adults != 0) {
             driver.findElement(By.xpath(String.format(adultsTicketsLocator, adults))).click();
@@ -29,11 +37,11 @@ public class TicketsPage extends BasePage {
         if (infants != 0) {
             driver.findElement(By.xpath(String.format(infantsTicketsLocator, infants))).click();
         }
-        driver.findElement(searchBtn).click();
+        searchBtn.click();
     }
 
     public Boolean isError() {
         Log4Test.info("Check that error pop-up window is displayed.");
-        return driver.findElements(errorPopup).size() > 0;
+        return errorPopup.isDisplayed();
     }
 }

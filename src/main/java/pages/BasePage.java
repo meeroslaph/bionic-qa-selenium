@@ -1,8 +1,10 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Log4Test;
@@ -11,30 +13,36 @@ abstract public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    private static final By helperLocator = By.xpath("//*[@class='header-phones-numbers-i']");
-    private static final By searchInput = By.className("header-search-input-text");
-    private static final By searchBtn = By.className("btn-link-i");
-    private static final By ticketsCategoryLocator = By.id("fatmenu_14");
-    private static final By flightDirectionLocator = By.xpath("//*[contains(@href,'IEV/AMS')]");
+    @FindBy(xpath = "//*[@class='header-phones-numbers-i']")
+    private WebElement helperLocator;
+    @FindBy(className = "header-search-input-text")
+    private WebElement searchInput;
+    @FindBy(className = "btn-link-i")
+    private WebElement searchBtn;
+    @FindBy(id = "fatmenu_14")
+    private WebElement ticketsCategoryLocator;
+    @FindBy(xpath = "//*[contains(@href,'IEV/AMS')]")
+    private WebElement flightDirectionLocator;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
+        PageFactory.initElements(driver, this);
     }
 
     public void search(String query) {
         Log4Test.info("Search for " + query + ".");
-        driver.findElement(searchInput).sendKeys(" ");
-        driver.findElement(helperLocator).click();
-        driver.findElement(searchInput).clear();
-        driver.findElement(searchInput).sendKeys(query);
-        driver.findElement(searchBtn).click();
+        searchInput.sendKeys(" ");
+        helperLocator.click();
+        searchInput.clear();
+        searchInput.sendKeys(query);
+        searchBtn.click();
     }
 
     public void openAirTicketsPage() {
         Log4Test.info("Open air tickets page.");
         Actions selectTicketsCategory = new Actions(driver);
-        selectTicketsCategory.moveToElement(driver.findElement(ticketsCategoryLocator)).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(flightDirectionLocator))).click();
+        selectTicketsCategory.moveToElement(ticketsCategoryLocator).perform();
+        wait.until(ExpectedConditions.elementToBeClickable(flightDirectionLocator)).click();
     }
 }

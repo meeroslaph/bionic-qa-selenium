@@ -4,11 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
-
-import java.util.List;
 
 public class TicketsPage extends BasePage {
     private static final String adultsTicketsLocator = "//div[@class='adults_block passengers_wrapper']/div[@class='persons']/div[%d]";
@@ -40,7 +37,7 @@ public class TicketsPage extends BasePage {
         searchBtn.click();
     }
 
-    public Boolean isError() {
+    public Boolean isErrorMessageDisplayed() {
         Log4Test.info("Check that error pop-up window is displayed.");
         return errorPopup.isDisplayed();
     }

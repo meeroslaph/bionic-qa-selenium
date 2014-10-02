@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
 
@@ -10,11 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompareProductsPage extends BasePage {
-    private static final By productTitleLocator = By.xpath("*//thead//div[contains(@class, 'i-title')]");
-    private static final By showDifferenceLnk = By.xpath("//*[@href='#only-different']");
-    private static final By productsKeysLocator = By.xpath("//td[@class='detail-title']");
-    private static final By productsDifferentKeysLocator = By.xpath("//tr[contains(@class, 'different')]/td[1]");
     private static final String productValuesLocator = "//td[@class='detail-title']/ancestor::tr/td[%d]";
+    @FindBy(xpath = "*//thead//div[contains(@class, 'i-title')]")
+    private List<WebElement> productTitleLocator;
+    @FindBy(xpath = "//*[@href='#only-different']")
+    private WebElement showDifferenceLnk;
+    @FindBy(xpath = "//td[@class='detail-title']")
+    private List<WebElement> productsKeysLocator;
+    @FindBy(xpath = "//tr[contains(@class, 'different')]/td[1]")
+    private List<WebElement> productsDifferentKeysLocator;
 
     public CompareProductsPage(WebDriver driver) {
         super(driver);
@@ -22,9 +27,9 @@ public class CompareProductsPage extends BasePage {
 
     public Boolean areProductsPresent(String[] products) {
         Log4Test.info("Check that selected products are present in the comparison page.");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(productTitleLocator));
+        wait.until(ExpectedConditions.visibilityOfAllElements(productTitleLocator));
         Boolean result = false;
-        List<WebElement> allComparedProducts = driver.findElements(productTitleLocator);
+        List<WebElement> allComparedProducts = productTitleLocator;
         for (int i = 0; i < allComparedProducts.size(); i++) {
             if (allComparedProducts.get(i).getText().equals(products[i])) {
                 result = true;
@@ -38,7 +43,7 @@ public class CompareProductsPage extends BasePage {
 
     public void showDifference() {
         Log4Test.info("Show the difference between the selected products.");
-        driver.findElement(showDifferenceLnk).click();
+        showDifferenceLnk.click();
     }
 
     public Boolean compareProductsDifference(String[] products) {
@@ -55,7 +60,7 @@ public class CompareProductsPage extends BasePage {
     }
 
     public List<WebElement> getProductsKeys() {
-        return driver.findElements(productsKeysLocator);
+        return productsKeysLocator;
     }
 
     public List<WebElement> getProductValues(int i) {
@@ -64,7 +69,7 @@ public class CompareProductsPage extends BasePage {
 
     public List<String> getDifferentProductKeys() {
         List<String> differentKeys = new ArrayList<String>();
-        List<WebElement> foundDifferentKeys = driver.findElements(productsDifferentKeysLocator);
+        List<WebElement> foundDifferentKeys = productsDifferentKeysLocator;
         for (WebElement element : foundDifferentKeys) {
             differentKeys.add(element.getText());
         }

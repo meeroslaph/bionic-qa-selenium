@@ -14,6 +14,6 @@ public class BuyInfantTicketsTest extends BaseTest {
         homePage.openAirTicketsPage();
         TicketsPage ticketsPage = new TicketsPage(driver);
         ticketsPage.buyTickets(adults, children, infants);
-        Assert.assertTrue(ticketsPage.isError(), Log4Test.error("Error pop-up is not displayed."));
+        Assert.assertTrue(ticketsPage.isErrorMessageDisplayed(), Log4Test.error("Error pop-up is not displayed."));
     }
 }

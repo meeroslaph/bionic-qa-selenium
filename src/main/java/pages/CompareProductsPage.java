@@ -12,6 +12,7 @@ import java.util.List;
 
 public class CompareProductsPage extends BasePage {
     private static final String productValuesLocator = "//td[@class='detail-title']/ancestor::tr/td[%d]";
+
     @FindBy(xpath = "*//thead//div[contains(@class, 'i-title')]")
     private List<WebElement> productTitleLocator;
     @FindBy(xpath = "//*[@href='#only-different']")

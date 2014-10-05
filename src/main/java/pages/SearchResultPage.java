@@ -2,14 +2,20 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
 
 public class SearchResultPage extends BasePage {
-    private static final By foundProductTitleLocator = By.className("g-i-list-title");
     private static final By addToComparisonBtn = By.name("tocomparison");
-    private static final By compareProductsLnk = By.xpath("//*[@href and contains(text(), 'сравнению')]");
-    private static final By buyBtn = By.name("topurchasesfromcatalog");
+
+    @FindBy(className = "g-i-list-title")
+    private WebElement foundProductTitleLocator;
+    @FindBy(xpath = "//*[@href and contains(text(), 'сравнению')]")
+    private WebElement compareProductsLnk;
+    @FindBy(xpath = "(//*[@name='topurchasesfromcatalog'])[1]")
+    private WebElement buyBtn;
 
     public SearchResultPage(WebDriver driver) {
         super(driver);
@@ -17,7 +23,7 @@ public class SearchResultPage extends BasePage {
 
     public Boolean isProductFound(String productName) {
         Log4Test.info("Check that product is found.");
-        return driver.findElement(foundProductTitleLocator).getText().equals(productName);
+        return foundProductTitleLocator.getText().equals(productName);
     }
 
     public void addProductToComparison() {

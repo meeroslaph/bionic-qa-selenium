@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,10 +15,6 @@ public class SearchResultPage extends BasePage {
     private WebElement compareProductsLnk;
     @FindBy(xpath = "(//*[@name='topurchasesfromcatalog'])[1]")
     private WebElement buyBtn;
-
-    public SearchResultPage(WebDriver driver) {
-        super(driver);
-    }
 
     public Boolean isProductFound(String productName) {
         Log4Test.info("Check that product is found.");

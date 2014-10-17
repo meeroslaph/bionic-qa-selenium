@@ -2,47 +2,30 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
+import selenium.LocalDriverManager;
 import selenium.WebDriverFactory;
 import utils.Log4Test;
 import utils.PropertyLoader;
 
 public class BaseTest {
-    public static WebDriver driver;
-
-    @BeforeSuite
-    public void intEnv() {
-        driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
-        driver.manage().window().maximize();
-    }
-
-    @BeforeTest
-    public void beforeTest() {
-        Log4Test.info("*#*#*#*#*#* Start of the test suite. *#*#*#*#*#*");
-    }
-
     @BeforeMethod
-    public void beforeMethod() {
-        driver.manage().deleteAllCookies();
+    public void setUp() {
+        WebDriver driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
+        driver.manage().window().maximize();
+        LocalDriverManager.setDriver(driver);
         Log4Test.info("-_-_-_-_- Start of the test. -_-_-_-_-");
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage();
         homePage.open();
         Assert.assertTrue(homePage.isOpened(), Log4Test.error("Home page is not open."));
     }
 
     @AfterMethod
-    public void afterMethod() {
+    public void tearDown() {
         Log4Test.info("-_-_-_-_-  End of the test.  -_-_-_-_-");
-    }
-
-    @AfterTest
-    public void afterTest() {
-        Log4Test.info("*#*#*#*#*#*  End of the test suite.  *#*#*#*#*#*");
-    }
-
-    @AfterSuite
-    public void shutEnv() {
+        WebDriver driver = LocalDriverManager.getDriver();
         if (driver != null) {
             driver.quit();
         }

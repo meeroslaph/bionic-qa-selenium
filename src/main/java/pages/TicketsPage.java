@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,10 +15,6 @@ public class TicketsPage extends BasePage {
     private WebElement searchBtn;
     @FindBy(xpath = "//*[@class='popup error_popup']")
     private WebElement errorPopup;
-
-    public TicketsPage(WebDriver driver) {
-        super(driver);
-    }
 
     public void buyTickets(int adults, int children, int infants) {
         wait.until(ExpectedConditions.elementToBeClickable(searchBtn));

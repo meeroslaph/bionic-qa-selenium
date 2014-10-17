@@ -10,9 +10,9 @@ import utils.Log4Test;
 public class BuyInfantTicketsTest extends BaseTest {
     @Test(dataProvider = "tickets", dataProviderClass = TicketsData.class)
     public void buyInfantTickets(int adults, int children, int infants) {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage();
         homePage.openAirTicketsPage();
-        TicketsPage ticketsPage = new TicketsPage(driver);
+        TicketsPage ticketsPage = new TicketsPage();
         ticketsPage.buyTickets(adults, children, infants);
         Assert.assertTrue(ticketsPage.isErrorMessageDisplayed(), Log4Test.error("Error pop-up is not displayed."));
     }

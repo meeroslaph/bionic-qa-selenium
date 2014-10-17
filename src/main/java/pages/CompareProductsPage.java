@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,10 +20,6 @@ public class CompareProductsPage extends BasePage {
     private List<WebElement> productsKeysLocator;
     @FindBy(xpath = "//tr[contains(@class, 'different')]/td[1]")
     private List<WebElement> productsDifferentKeysLocator;
-
-    public CompareProductsPage(WebDriver driver) {
-        super(driver);
-    }
 
     public Boolean areProductsPresent(String[] products) {
         Log4Test.info("Check that selected products are present in the comparison page.");

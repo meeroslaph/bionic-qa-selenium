@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,10 +18,6 @@ public class BasketPage extends BasePage {
     private WebElement priceSum;
     @FindBy(className = "cart-total-uah")
     private WebElement priceTotal;
-
-    public BasketPage(WebDriver driver) {
-        super(driver);
-    }
 
     public Boolean checkProductTitle(String productName) {
         Log4Test.info("Check title of added product.");

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.LocalDriverManager;
 import utils.Log4Test;
 
 abstract public class BasePage {
@@ -24,8 +25,8 @@ abstract public class BasePage {
     @FindBy(xpath = "//*[contains(@href,'IEV/AMS')]")
     private WebElement flightDirectionLocator;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
+    public BasePage() {
+        driver = LocalDriverManager.getDriver();
         wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(driver, this);
     }

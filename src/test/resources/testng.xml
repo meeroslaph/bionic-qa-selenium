@@ -1,13 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="tests" verbose="2">
-    <test name="tickets">
+<suite name="tests" parallel="tests" thread-count="5" verbose="2">
+    <test name="tickets" parallel="methods">
         <classes>
             <class name="tests.tickets.BuyInfantTicketsTest"/>
         </classes>
     </test>
 
-    <test name="products">
+    <test name="products" parallel="methods">
         <classes>
             <class name="tests.products.FindSimilarProductsTest"/>
             <class name="tests.products.CompareProductsTest"/>
@@ -15,7 +15,7 @@
         </classes>
     </test>
 
-    <test name="basket">
+    <test name="basket" parallel="methods">
         <classes>
             <class name="tests.basket.AddProductsToBasket"/>
         </classes>

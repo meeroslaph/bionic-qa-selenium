@@ -8,7 +8,7 @@ import utils.Log4Test;
 public class BasketPage extends BasePage {
     @FindBy(className = "cart-title")
     private WebElement title;
-    @FindBy(className = "no-visited")
+    @FindBy(xpath = "//*[@name='goods-link' and @class='no-visited']")
     private WebElement productTitle;
     @FindBy(className = "cart-uah")
     private WebElement productPrice;
@@ -21,13 +21,13 @@ public class BasketPage extends BasePage {
 
     public Boolean checkProductTitle(String productName) {
         Log4Test.info("Check title of added product.");
-        wait.until(ExpectedConditions.visibilityOf(productPrice));
+        wait.until(ExpectedConditions.visibilityOf(productTitle));
         return productTitle.getText().equals(productName);
     }
 
     public Boolean checkProductPrice(String price, String currency) {
         Log4Test.info("Check price of added product.");
         wait.until(ExpectedConditions.visibilityOf(productPrice));
-        return productPrice.getText().equals(price + " " + currency);
+        return productPrice.getText().equals(price + " " + currency + ".");
     }
 }

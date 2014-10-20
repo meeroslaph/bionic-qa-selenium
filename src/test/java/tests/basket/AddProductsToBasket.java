@@ -19,7 +19,7 @@ public class AddProductsToBasket extends BaseTest {
         BasketPage basketPage = new BasketPage();
         for (String product : products) {
             Assert.assertTrue(basketPage.checkProductTitle(product), Log4Test.error("Title of added product is not " + product + "."));
-            Assert.assertTrue(basketPage.checkProductPrice(price, currency), Log4Test.error("Price of added product is not " + price));
+            Assert.assertTrue(basketPage.checkProductPrice(price, currency), Log4Test.error("Price of " + product + " is not " + price));
         }
     }
 }

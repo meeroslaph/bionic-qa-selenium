@@ -10,7 +10,7 @@ public class SearchResultPage extends BasePage {
     private static final By addToComparisonBtn = By.name("tocomparison");
 
     @FindBy(className = "g-i-list-title")
-    private WebElement foundProductTitleLocator;
+    private WebElement foundProductTitle;
     @FindBy(xpath = "//*[@href and contains(text(), 'сравнению')]")
     private WebElement compareProductsLnk;
     @FindBy(xpath = "(//*[@name='topurchasesfromcatalog'])[1]")
@@ -18,7 +18,7 @@ public class SearchResultPage extends BasePage {
 
     public Boolean isProductFound(String productName) {
         Log4Test.info("Check that product is found.");
-        return foundProductTitleLocator.getText().equals(productName);
+        return foundProductTitle.getText().equals(productName);
     }
 
     public void addProductToComparison() {
@@ -34,6 +34,7 @@ public class SearchResultPage extends BasePage {
 
     public void buyProduct() {
         Log4Test.info("Buy product.");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(addToComparisonBtn)); //Additional wait for Chrome support.
         wait.until(ExpectedConditions.elementToBeClickable(buyBtn)).click();
     }
 }

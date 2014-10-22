@@ -7,7 +7,7 @@ import pages.SearchResultPage;
 import tests.BaseTest;
 import utils.Log4Test;
 
-public class AddProductsToBasket extends BaseTest {
+public class AddProductsToBasketTest extends BaseTest {
     @Test(dataProvider = "basket", dataProviderClass = BasketData.class)
     public void addProductsToBasket(String[] products, String price, String currency) {
         SearchResultPage searchResultPage = new SearchResultPage();

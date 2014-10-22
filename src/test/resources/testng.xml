@@ -17,7 +17,7 @@
 
     <test name="basket" parallel="methods">
         <classes>
-            <class name="tests.basket.AddProductsToBasket"/>
+            <class name="tests.basket.AddProductsToBasketTest"/>
         </classes>
     </test>
 </suite>

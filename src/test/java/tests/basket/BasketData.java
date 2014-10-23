@@ -6,8 +6,8 @@ public class BasketData {
     @DataProvider(name = "basket")
     public static Object[][] createData() {
         return new Object[][]{
-                { new String[] {"Nokia 105 Black"}, "319", "грн" },
-                { new String[] {"Samsung PE-43H4500 (PE43H4500AKXUA)"}, "6 299", "грн" }
+                {new String[]{"Nokia 105 Black"}, "319", "грн"},
+                {new String[]{"Samsung PE-43H4500 (PE43H4500AKXUA)"}, "6 299", "грн"}
         };
     }
 }

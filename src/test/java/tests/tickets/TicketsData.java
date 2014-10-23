@@ -6,9 +6,9 @@ public class TicketsData {
     @DataProvider(name = "tickets")
     public static Object[][] createData() {
         return new Object[][]{
-                { 1, 0, 2 },
-                { 1, 0, 3 },
-                { 2, 0, 3 }
+                {1, 0, 2},
+                {1, 0, 3},
+                {2, 0, 3}
         };
     }
 }

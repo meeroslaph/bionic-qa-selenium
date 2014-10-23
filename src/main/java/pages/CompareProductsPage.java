@@ -29,8 +29,7 @@ public class CompareProductsPage extends BasePage {
         for (int i = 0; i < allComparedProducts.size(); i++) {
             if (allComparedProducts.get(i).getText().equals(products[i])) {
                 result = true;
-            }
-            else {
+            } else {
                 return false;
             }
         }

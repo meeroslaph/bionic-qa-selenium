@@ -13,8 +13,7 @@ public class PropertyLoader {
 
         try {
             props.load(PropertyLoader.class.getResourceAsStream(PROPERTY_FILE));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             Assert.fail(Log4Test.info(name));
         }
 

@@ -5,10 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
-import selenium.LocalDriverManager;
-import selenium.WebDriverFactory;
+import utils.LocalDriverManager;
 import utils.Log4Test;
 import utils.PropertyLoader;
+import utils.WebDriverFactory;
 
 public class BaseTest {
     @BeforeMethod

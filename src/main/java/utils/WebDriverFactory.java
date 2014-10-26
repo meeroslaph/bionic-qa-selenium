@@ -1,10 +1,9 @@
-package selenium;
+package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import utils.Log4Test;
 
 public class WebDriverFactory {
     public static final String CHROME = "chrome";

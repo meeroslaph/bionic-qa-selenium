@@ -17,7 +17,7 @@ public class WebDriverFactory {
             setChromeDriver();
             driver = new ChromeDriver();
         } else
-            Assert.fail(Log4Test.error("WebDriver is not defined."));
+            Assert.fail("WebDriver is not defined.");
         return driver;
     }
 
@@ -28,7 +28,7 @@ public class WebDriverFactory {
                     + (os.equals("win") ? ".exe" : "");
             System.setProperty("webdriver.chrome.driver", chromeBinary);
         } else {
-            Assert.fail(Log4Test.error("There is no ChromeDriver for " + os + " OS in the resources of the project."));
+            Assert.fail("There is no ChromeDriver for " + os + " OS in the resources of the project.");
         }
     }
 }

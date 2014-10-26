@@ -10,19 +10,15 @@ public class PropertyLoader {
 
     public static String loadProperty(String name) {
         Properties props = new Properties();
-
+        String value = "";
         try {
             props.load(PropertyLoader.class.getResourceAsStream(PROPERTY_FILE));
         } catch (IOException e) {
-            Assert.fail(Log4Test.info(name));
+            Assert.fail(name + " property can't be loaded. " + e + " exception has been thrown.");
         }
-
-        String value = "";
-
         if (name != null) {
             value = props.getProperty(name);
         }
-
         return value;
     }
 }

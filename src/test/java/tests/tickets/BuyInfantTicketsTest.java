@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.TicketsPage;
 import tests.BaseTest;
-import utils.Log4Test;
 
 public class BuyInfantTicketsTest extends BaseTest {
     @Test(dataProvider = "tickets", dataProviderClass = TicketsData.class)
@@ -14,6 +13,6 @@ public class BuyInfantTicketsTest extends BaseTest {
         homePage.openAirTicketsPage();
         TicketsPage ticketsPage = new TicketsPage();
         ticketsPage.buyTickets(adults, children, infants);
-        Assert.assertTrue(ticketsPage.isErrorMessageDisplayed(), Log4Test.error("Error pop-up is not displayed."));
+        Assert.assertTrue(ticketsPage.isErrorMessageDisplayed(), "Error pop-up is not displayed.");
     }
 }

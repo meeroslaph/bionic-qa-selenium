@@ -1,14 +1,13 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Log4Test;
 
 public class SearchResultPage extends BasePage {
-    private static final By addToComparisonBtn = By.name("tocomparison");
-
+    @FindBy(name = "tocomparison")
+    private WebElement addToComparisonBtn;
     @FindBy(className = "g-i-list-title")
     private WebElement foundProductTitle;
     @FindBy(xpath = "//*[@href and contains(text(), 'сравнению')]")
@@ -24,7 +23,7 @@ public class SearchResultPage extends BasePage {
     public void addProductToComparison() {
         Log4Test.info("Add the product to comparison.");
         wait.until(ExpectedConditions.elementToBeClickable(addToComparisonBtn)).click();
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(addToComparisonBtn));
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(addToComparisonBtn)));
     }
 
     public void compareProducts() {
@@ -34,7 +33,7 @@ public class SearchResultPage extends BasePage {
 
     public void buyProduct() {
         Log4Test.info("Buy product.");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(addToComparisonBtn)); //Additional wait for Chrome support.
+        wait.until(ExpectedConditions.visibilityOf(addToComparisonBtn)); //Additional wait for Chrome support.
         wait.until(ExpectedConditions.elementToBeClickable(buyBtn)).click();
     }
 }

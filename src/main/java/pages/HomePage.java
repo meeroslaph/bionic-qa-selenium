@@ -10,7 +10,7 @@ public class HomePage extends BasePage {
         driver.get(URL);
     }
 
-    public Boolean isOpened() {
+    public boolean isOpened() {
         Log4Test.info("Check that home page is open.");
         return driver.getCurrentUrl().equals(URL);
     }

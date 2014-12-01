@@ -33,7 +33,7 @@ public class TicketsPage extends BasePage {
         searchBtn.click();
     }
 
-    public Boolean isErrorMessageDisplayed() {
+    public boolean isErrorMessageDisplayed() {
         Log4Test.info("Check that error pop-up window is displayed.");
         return errorPopup.isDisplayed();
     }

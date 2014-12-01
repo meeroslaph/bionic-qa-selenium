@@ -15,7 +15,7 @@ public class SearchResultPage extends BasePage {
     @FindBy(xpath = "(//*[@name='topurchasesfromcatalog'])[1]")
     private WebElement buyBtn;
 
-    public Boolean isProductFound(String productName) {
+    public boolean isProductFound(String productName) {
         Log4Test.info("Check that product is found.");
         return foundProductTitle.getText().equals(productName);
     }

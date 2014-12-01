@@ -19,13 +19,13 @@ public class BasketPage extends BasePage {
     @FindBy(className = "cart-total-uah")
     private WebElement priceTotal;
 
-    public Boolean checkProductTitle(String productName) {
+    public boolean checkProductTitle(String productName) {
         Log4Test.info("Check title of added product.");
         wait.until(ExpectedConditions.visibilityOf(productTitle));
         return productTitle.getText().equals(productName);
     }
 
-    public Boolean checkProductPrice(String price, String currency) {
+    public boolean checkProductPrice(String price, String currency) {
         Log4Test.info("Check price of added product.");
         wait.until(ExpectedConditions.visibilityOf(productPrice));
         return productPrice.getText().equals(price + " " + currency + ".");

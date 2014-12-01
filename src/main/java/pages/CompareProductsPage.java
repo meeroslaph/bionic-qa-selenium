@@ -21,10 +21,10 @@ public class CompareProductsPage extends BasePage {
     @FindBy(xpath = "//tr[contains(@class, 'different')]/td[1]")
     private List<WebElement> productsDifferentKeysLocator;
 
-    public Boolean areProductsPresent(String[] products) {
+    public boolean areProductsPresent(String[] products) {
         Log4Test.info("Check that selected products are present in the comparison page.");
         wait.until(ExpectedConditions.visibilityOfAllElements(productTitleLocator));
-        Boolean result = false;
+        boolean result = false;
         List<WebElement> allComparedProducts = productTitleLocator;
         for (int i = 0; i < allComparedProducts.size(); i++) {
             if (allComparedProducts.get(i).getText().equals(products[i])) {
@@ -41,7 +41,7 @@ public class CompareProductsPage extends BasePage {
         showDifferenceLnk.click();
     }
 
-    public Boolean compareProductsDifference(String[] products) {
+    public boolean compareProductsDifference(String[] products) {
         Log4Test.info("Compare the difference between the selected products.");
         List<WebElement> productsKeys = getProductsKeys();
         List<List<WebElement>> productsValues = new ArrayList<List<WebElement>>();

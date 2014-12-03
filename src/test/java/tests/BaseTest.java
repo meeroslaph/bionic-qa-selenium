@@ -10,7 +10,7 @@ import utils.Log4Test;
 import utils.PropertyLoader;
 import utils.WebDriverFactory;
 
-public class BaseTest {
+abstract public class BaseTest {
     @BeforeMethod
     public void setUp() {
         WebDriver driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));

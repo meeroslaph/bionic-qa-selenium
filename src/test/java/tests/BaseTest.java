@@ -12,10 +12,8 @@ import utils.WebDriverFactory;
 
 abstract public class BaseTest {
     @BeforeMethod
-    public void setUp() {
-        WebDriver driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
-        driver.manage().window().maximize();
-        LocalDriverManager.setDriver(driver);
+    public void beforeMethod() {
+        setUp();
         Log4Test.info("-_-_-_-_- Start of the test. -_-_-_-_-");
         HomePage homePage = new HomePage();
         homePage.open();
@@ -23,8 +21,18 @@ abstract public class BaseTest {
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void afterMethod() {
         Log4Test.info("-_-_-_-_-  End of the test.  -_-_-_-_-");
+        tearDown();
+    }
+
+    public void setUp() {
+        WebDriver driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
+        driver.manage().window().maximize();
+        LocalDriverManager.setDriver(driver);
+    }
+
+    public void tearDown() {
         WebDriver driver = LocalDriverManager.getDriver();
         if (driver != null) {
             driver.quit();

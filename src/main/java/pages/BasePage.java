@@ -31,19 +31,21 @@ abstract public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void search(String query) {
+    public SearchResultPage search(String query) {
         Log4Test.info("Search for " + query + ".");
         searchInput.sendKeys(" ");
         helperLocator.click();
         searchInput.clear();
         searchInput.sendKeys(query);
         searchBtn.click();
+        return new SearchResultPage();
     }
 
-    public void openAirTicketsPage() {
+    public TicketsPage openAirTicketsPage() {
         Log4Test.info("Open air tickets page.");
         Actions selectTicketsCategory = new Actions(driver);
         selectTicketsCategory.moveToElement(ticketsCategoryLocator).perform();
         wait.until(ExpectedConditions.elementToBeClickable(flightDirectionLocator)).click();
+        return new TicketsPage();
     }
 }

@@ -15,8 +15,7 @@ abstract public class BaseTest {
     public void beforeMethod() {
         setUp();
         Log4Test.info("-_-_-_-_- Start of the test. -_-_-_-_-");
-        HomePage homePage = new HomePage();
-        homePage.open();
+        HomePage homePage = new HomePage().open();
         Assert.assertTrue(homePage.isOpened(), "Home page is not open.");
     }
 

@@ -9,9 +9,7 @@ import tests.BaseTest;
 public class SearchInfantTicketsTest extends BaseTest {
     @Test(dataProvider = "tickets", dataProviderClass = TicketsData.class)
     public void searchInfantTickets(int adults, int children, int infants) {
-        HomePage homePage = new HomePage();
-        homePage.openAirTicketsPage();
-        TicketsPage ticketsPage = new TicketsPage();
+        TicketsPage ticketsPage = new HomePage().openAirTicketsPage();
         ticketsPage.searchTickets(adults, children, infants);
         Assert.assertTrue(ticketsPage.isErrorMessageDisplayed(), "Error pop-up is not displayed.");
     }

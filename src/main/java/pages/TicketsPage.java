@@ -16,7 +16,7 @@ public class TicketsPage extends BasePage {
     @FindBy(xpath = "//*[@class='popup error_popup']")
     private WebElement errorPopup;
 
-    public void buyTickets(int adults, int children, int infants) {
+    public void searchTickets(int adults, int children, int infants) {
         wait.until(ExpectedConditions.elementToBeClickable(searchBtn));
         Log4Test.info("Buy tickets.");
         //Set default adult tickets amount to 0.

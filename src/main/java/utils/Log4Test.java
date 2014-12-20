@@ -7,6 +7,7 @@ public class Log4Test {
     private static final Logger LOGGER = Logger.getLogger(Log4Test.class);
     private static final String INFO_LOG = "INFO: %s";
     private static final String ERROR_LOG = "ERROR: %s";
+
     private Log4Test() {
     }
 

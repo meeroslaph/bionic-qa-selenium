@@ -26,14 +26,16 @@ public class SearchResultPage extends BasePage {
         wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(addToComparisonBtn)));
     }
 
-    public void compareProducts() {
+    public CompareProductsPage compareProducts() {
         Log4Test.info("Open comparison page.");
         wait.until(ExpectedConditions.elementToBeClickable(compareProductsLnk)).click();
+        return new CompareProductsPage();
     }
 
-    public void buyProduct() {
+    public BasketPage buyProduct() {
         Log4Test.info("Buy product.");
         wait.until(ExpectedConditions.visibilityOf(addToComparisonBtn)); //Additional wait for Chrome support.
         wait.until(ExpectedConditions.elementToBeClickable(buyBtn)).click();
+        return new BasketPage();
     }
 }

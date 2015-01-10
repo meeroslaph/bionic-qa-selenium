@@ -36,7 +36,7 @@ public class CompareProductsPage extends BasePage {
         return result;
     }
 
-    public void showDifference() {
+    private void showDifference() {
         Log4Test.info("Show the difference between the selected products.");
         showDifferenceLnk.click();
     }

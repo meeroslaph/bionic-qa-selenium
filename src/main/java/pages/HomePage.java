@@ -5,7 +5,7 @@ import utils.Log4Test;
 public class HomePage extends BasePage {
     private static final String URL = "http://rozetka.com.ua/";
 
-    public HomePage open() {
+    public HomePage openHomePage() {
         Log4Test.info("Open home page.");
         driver.get(URL);
         return this;

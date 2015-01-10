@@ -54,15 +54,15 @@ public class CompareProductsPage extends BasePage {
         return calculatedDifferentKeys.size() == differentKeys.size() && calculatedDifferentKeys.containsAll(differentKeys);
     }
 
-    public List<WebElement> getProductsKeys() {
+    private List<WebElement> getProductsKeys() {
         return productsKeysLocator;
     }
 
-    public List<WebElement> getProductValues(int i) {
+    private List<WebElement> getProductValues(int i) {
         return driver.findElements(By.xpath(String.format(productValuesLocator, i)));
     }
 
-    public List<String> getDifferentProductKeys() {
+    private List<String> getDifferentProductKeys() {
         List<String> differentKeys = new ArrayList<String>();
         List<WebElement> foundDifferentKeys = productsDifferentKeysLocator;
         for (WebElement element : foundDifferentKeys) {
@@ -72,7 +72,7 @@ public class CompareProductsPage extends BasePage {
     }
 
     //TODO: Improve the method to handle more than 2 products more robust.
-    public List<String> calculateDifferentKeys(List<WebElement> productKeys, List<List<WebElement>> productsValues) {
+    private List<String> calculateDifferentKeys(List<WebElement> productKeys, List<List<WebElement>> productsValues) {
         List<String> differentKeys = new ArrayList<String>();
         for (int i = 0; i < productKeys.size(); i++) {
             if (!productsValues.get(0).get(i).getText().equals(productsValues.get(1).get(i).getText())) {

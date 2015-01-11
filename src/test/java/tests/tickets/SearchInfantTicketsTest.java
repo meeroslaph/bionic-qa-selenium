@@ -11,6 +11,6 @@ public class SearchInfantTicketsTest extends BaseTest {
     public void searchInfantTickets(int adults, int children, int infants) {
         TicketsPage ticketsPage = new HomePage().openAirTicketsPage();
         ticketsPage.searchTickets(adults, children, infants);
-        Assert.assertTrue(ticketsPage.isErrorMessageDisplayed(), "Error pop-up is not displayed.");
+        Assert.assertTrue(ticketsPage.isErrorMessageDisplayed(), "Error pop-up message is not displayed.");
     }
 }

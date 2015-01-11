@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +11,7 @@ public class SearchResultPage extends BasePage {
     private WebElement addToComparisonBtn;
     @FindBy(className = "g-i-list-title")
     private WebElement foundProductTitle;
-    @FindBy(xpath = "//*[@href and contains(text(), 'сравнению')]")
+    @FindBy(xpath = "//*[@id='head_banner_container']//a[@class='lightblue underline']")
     private WebElement compareProductsLnk;
     @FindBy(xpath = "(//*[@name='topurchasesfromcatalog'])[1]")
     private WebElement buyBtn;
@@ -20,10 +21,14 @@ public class SearchResultPage extends BasePage {
         return foundProductTitle.getText().equals(productName);
     }
 
-    public void addProductToComparison() {
+    public SearchResultPage addProductToComparison() {
         Log4Test.info("Add the product to comparison.");
-        wait.until(ExpectedConditions.elementToBeClickable(addToComparisonBtn)).click();
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(addToComparisonBtn)));
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(addToComparisonBtn)).click();
+        } catch (StaleElementReferenceException ex) {
+            addToComparisonBtn.click();
+        }
+        return this;
     }
 
     public CompareProductsPage compareProducts() {
@@ -34,8 +39,11 @@ public class SearchResultPage extends BasePage {
 
     public BasketPage buyProduct() {
         Log4Test.info("Buy product.");
-        wait.until(ExpectedConditions.visibilityOf(addToComparisonBtn)); //Additional wait for Chrome support.
-        wait.until(ExpectedConditions.elementToBeClickable(buyBtn)).click();
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(buyBtn)).click();
+        } catch (StaleElementReferenceException ex) {
+            buyBtn.click();
+        }
         return new BasketPage();
     }
 }

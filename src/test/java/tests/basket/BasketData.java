@@ -7,7 +7,7 @@ public class BasketData {
     public static Object[][] createData() {
         return new Object[][]{
                 {"Nokia 105 Black", "399", "грн"},
-                {"Samsung PE43H4500", "5 901", "грн"}
+                {"Genius KB-110 PS/2 (31300689104)", "121", "грн"}
         };
     }
 }

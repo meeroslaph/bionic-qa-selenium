@@ -15,8 +15,7 @@ public class CompareProductsTest extends BaseTest {
             Assert.assertTrue(searchResultPage.isProductFound(product), product + " is not found.");
             searchResultPage.addProductToComparison();
         }
-        searchResultPage.compareProducts();
-        CompareProductsPage compareProductsPage = new CompareProductsPage();
+        CompareProductsPage compareProductsPage = searchResultPage.compareProducts();
         Assert.assertTrue(compareProductsPage.areProductsPresent(products), "Not all selected products are present in the comparison page.");
     }
 }

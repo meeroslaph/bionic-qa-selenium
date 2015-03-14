@@ -2,7 +2,7 @@ My project at [Bionic University](http://bionic-university.com/) for Quality Ass
 
 **Environment**:
 * Java
-* Maven
+* Apache Maven
 * TestNG
 * Selenium WebDriver
 * Git

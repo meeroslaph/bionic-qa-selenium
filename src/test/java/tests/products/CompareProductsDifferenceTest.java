@@ -8,7 +8,7 @@ import tests.BaseTest;
 
 public class CompareProductsDifferenceTest extends BaseTest {
     @Test(dataProvider = "products", dataProviderClass = ProductsData.class)
-    public void compareProductsDifferenceTest(String[] products) {
+    public void compareProductsDifference(String[] products) {
         SearchResultPage searchResultPage = new SearchResultPage();
         for (String product : products) {
             searchResultPage.search(product);

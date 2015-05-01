@@ -25,13 +25,13 @@ abstract public class BaseTest {
         tearDown();
     }
 
-    public void setUp() {
+    private void setUp() {
         WebDriver driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
         driver.manage().window().maximize();
         LocalDriverManager.setDriver(driver);
     }
 
-    public void tearDown() {
+    private void tearDown() {
         WebDriver driver = LocalDriverManager.getDriver();
         if (driver != null) {
             driver.quit();

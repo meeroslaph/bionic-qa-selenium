@@ -6,8 +6,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 public class WebDriverFactory {
-    public static final String CHROME = "chrome";
-    public static final String FIREFOX = "firefox";
+    private static final String CHROME = "chrome";
+    private static final String FIREFOX = "firefox";
 
     public static WebDriver initDriver(String browserName) {
         WebDriver driver = null;

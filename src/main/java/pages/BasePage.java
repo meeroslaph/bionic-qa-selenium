@@ -11,8 +11,8 @@ import utils.LocalDriverManager;
 import utils.Log4Test;
 
 abstract public class BasePage {
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    WebDriver driver;
+    WebDriverWait wait;
 
     @FindBy(xpath = "//*[@class='header-phones-numbers-i']")
     private WebElement helperLocator;
@@ -25,7 +25,7 @@ abstract public class BasePage {
     @FindBy(xpath = "//*[contains(@href,'IEV/AMS')]")
     private WebElement flightDirectionLocator;
 
-    public BasePage() {
+    BasePage() {
         driver = LocalDriverManager.getDriver();
         wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(driver, this);
